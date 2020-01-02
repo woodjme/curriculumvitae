@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/woodjme/curriculumvitae.svg?branch=master)](https://travis-ci.org/woodjme/curriculumvitae)
 
-[View Curriculum Vitae](https://jamiewood.io/curriculumvitae/cv.pdf)
+[View Curriculum Vitae](https://cv.jamiewood.io/cv.pdf)
 
 ## Getting Started
 
