@@ -9,7 +9,8 @@ script:
   - docker run --rm -it -v $(pwd):/data woodjme/tex xelatex cv.tex
 
 before_deploy:
-  - find . ! -name 'cv.pdf' ! -name 'CNAME' -type f -exec rm -f {} +
+  - find . ! -name 'cv.pdf' -type f -exec rm -f {} +
+  - echo 'cv.jamiewood.io' > CNAME
 
 deploy:
   provider: pages
