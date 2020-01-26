@@ -11,6 +11,7 @@ script:
 before_deploy:
   - find . ! -name 'cv.pdf' -type f -exec rm -f {} +
   - echo 'cv.jamiewood.io' > CNAME
+  - echo '<html><script>window.location.href="https://cv.jamiewood.io/cv.pdf"</script></html>' > index.html
 
 deploy:
   provider: pages
