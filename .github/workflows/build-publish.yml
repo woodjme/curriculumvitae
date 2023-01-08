@@ -19,7 +19,7 @@ jobs:
       - run: echo 'cv.jamiewood.io' > CNAME
       - run: echo '<html><script>window.location.href="https://cv.jamiewood.io/cv.pdf"</script></html>' > index.html
       # publish cv.pdf to gh-pages
-      - uses: JamesIves/github-pages-deploy-action@releases/v3
+      - uses: JamesIves/github-pages-deploy-action@releases/v4
         with:
           BRANCH: gh-pages
           FOLDER: .
