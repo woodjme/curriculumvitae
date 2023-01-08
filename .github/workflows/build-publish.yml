@@ -1,0 +1,26 @@
+name: Build and Publish to Github Pages
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    # first of every month at 3am UTC
+    - cron: '0 3 1 * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout
+      - uses: actions/checkout@v2
+      #  Build tex with docker image
+      - run: docker run --rm -it -v $(pwd):/data woodjme/tex xelatex cv.tex
+      - run: find . ! -name 'cv.pdf' -type f -exec rm -f {} +
+      - run: echo 'cv.jamiewood.io' > CNAME
+      - run: echo '<html><script>window.location.href="https://cv.jamiewood.io/cv.pdf"</script></html>' > index.html
+      # publish cv.pdf to gh-pages
+      - uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          BRANCH: gh-pages
+          FOLDER: .
+          CLEAN: true
