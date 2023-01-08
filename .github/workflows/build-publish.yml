@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v2
       #  Build tex with docker image
       - run: docker run --rm -v $(pwd):/data woodjme/tex xelatex cv.tex
-      - run: move cv.pdf dist/cv.pdf
+      - run: mv cv.pdf dist/cv.pdf
       - run: echo 'cv.jamiewood.io' > dist/CNAME
       - run: echo '<html><script>window.location.href="https://cv.jamiewood.io/cv.pdf"</script></html>' > dist/index.html
       # publish cv.pdf to gh-pages
